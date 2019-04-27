@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import Player from './Player.js'
-import GameUI from './GameUI.js'
+import Player from './Player'
+import GameUI from './GameUI'
 
 class GameCore extends Component{
     constructor(props){

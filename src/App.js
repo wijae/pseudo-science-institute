@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import GameUI from './components/GameUI.js';
-import GameCore from './components/GameCore.js';
+import GameCore from './components/GameCore';
 
 class App extends Component {
   //one-star
