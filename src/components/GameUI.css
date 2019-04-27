@@ -1,0 +1,103 @@
+#back {
+    background-color: #FFEEEE;
+    width: 780px;
+    height: 440px;
+}
+
+#prog {
+    background-color: #FFCCCE;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 360px;
+    height: 400px;
+}
+
+#calendar {
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 20px;
+    left: 400px;
+    width: 360px;
+    height: 220px;
+}
+
+#date {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 340px;
+}
+
+#explain {
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    width: 340px;
+    height: 180px;
+}
+
+#progress {
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 230px;
+    left: 10px;
+    width: 340px;
+    height: 160px;
+}
+
+#mental {
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    left: 0px;
+    width: 170px;
+    height: 150px;
+}
+
+#graph {
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    left: 170px;
+    width: 170px;
+    height: 150px;
+}
+
+#graph_text {
+    font-size: 13px;
+}
+
+#bt0 {
+    position: absolute;
+    text-align: center;
+    top: 260px;
+    left: 400px;
+    width: 180px;
+    height: 70px;
+}
+#bt1 {
+    position: absolute;
+    text-align: center;
+    top: 260px;
+    left: 580px;
+    width: 180px;
+    height: 70px;
+}
+#bt2 {
+    position: absolute;
+    text-align: center;
+    top: 330px;
+    left: 400px;
+    width: 180px;
+    height: 70px;
+}
+#bt3 {
+    position: absolute;
+    text-align: center;
+    top: 330px;
+    left: 580px;
+    width: 180px;
+    height: 70px;
+}
