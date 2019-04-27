@@ -6,24 +6,22 @@ class Score extends Component{
         hexwater: 0,
         pyramid: 0,
         onion: 0,
-    }
-    constructor(props){
-        super(props);
-        this.state={
-            score: 0,
-        }
-        this.computeScore = this.computeScore.bind(this);
-    }
-    computeScore(){
-        const {mental, hexwater, pyramid, onion} = this.props;
-        const newscore = (mental*100 + hexwater*50 + pyramid*50)*onion/100;
-        return newscore;
-    }
+		};
+
+		state = {
+				score: 0,
+		};
 
     render(){
         return(
             <div>Score : {this.computeScore()}</div>
         )
+    }
+
+    computeScore = () => {
+        const {mental, hexwater, pyramid, onion} = this.props;
+        const newscore = (mental*100 + hexwater*50 + pyramid*50)*onion/100;
+        return newscore;
     }
 }
 

@@ -3,28 +3,37 @@ import Player from './Player'
 import GameUI from './GameUI'
 
 class GameCore extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            mental: 100,
-            hexwater: 0,
-            pyramid: 0,
-            onion: 0,
-            date: 1,
-            day: 0,
-            hasEnd: false,
-            hasLose: false,
-        }
-        this.getGameState = this.getGameState.bind(this);
-        this.changeGameState =this.changeGameState.bind(this);
-        this.changePlayerState = this.changePlayerState.bind(this);
-        this.applyStudy = this.applyStudy.bind(this);
-        this.applyOnion = this.applyOnion.bind(this);  
-        this.applyGame = this.applyGame.bind(this);   
-        this.applySleep = this.applySleep.bind(this);
-    }
+		state = {
+			mental: 100,
+			hexwater: 0,
+			pyramid: 0,
+			onion: 0,
+			date: 1,
+			day: 0,
+			hasEnd: false,
+			hasLose: false,
+		}
+
+    render(){
+			const { mental, hexwater, pyramid, onion, date, day } = this.state;
+			return(
+					<div>
+							<GameUI mental={mental}
+									hexwater={hexwater}
+									pyramid={pyramid}
+									onion={onion}
+									date={date}
+									day={day}
+									handlePlayerState={this.changePlayerState}/>
+							{/*
+							<h3>게임 상황 : {this.getGameState()}</h3>
+							<Player handleGameState={this.changeGameState}/>
+							*/}
+					</div>
+			)
+		}
     
-    applyStudy(){
+    applyStudy = () => {
         const {mental, hexwater, pyramid, date} = this.state;
         // random int 1~16
         const up = Math.floor(Math.random()*5)+1;
@@ -41,7 +50,7 @@ class GameCore extends Component{
         console.log("exectued applyStudy");
     }
 
-    applyOnion(){
+    applyOnion = () =>{
         const {mental, onion, date} = this.state;
         // update state
         this.setState({
@@ -54,7 +63,7 @@ class GameCore extends Component{
         console.log("exectued applyOnion");
     }
 
-    applyGame(){
+    applyGame = () =>{
         const {mental, date} = this.state;
         // random int 10, 20, 30, 40
         const up = (Math.floor(Math.random()*4) + 1) * 10;
@@ -66,8 +75,9 @@ class GameCore extends Component{
             date: date + 1,
         })
         console.log("executed applyGame")
-    }
-    applySleep(){
+		}
+		
+    applySleep = () =>{
         const {mental, date} = this.state;
         console.log("sleep, add 25");
         // update state
@@ -80,14 +90,15 @@ class GameCore extends Component{
         console.log("executed applySleep");
     }
 
-    changeGameState(end, lose){
+    changeGameState = (end, lose) => {
         this.setState({
             ...this.state,
             hasEnd: end,
             hasLose: lose,
         })
-    }
-    changePlayerState(bt){
+		}
+		
+    changePlayerState = (bt) => {
         switch(bt){
             case 'bt0': this.applyStudy(); break;
             case 'bt1': this.applyOnion(); break;
@@ -95,8 +106,9 @@ class GameCore extends Component{
             case 'bt3': this.applySleep(); break;
             default: break;
         }
-    }
-    getGameState(){
+		}
+		
+    getGameState = () => {
         if(this.state.hasEnd){
             if(this.state.hasLose){
                 return "패배 ㅠㅠㅠ"
@@ -108,25 +120,7 @@ class GameCore extends Component{
         else{
             return "진행중..."
         }
-    }
-    render(){
-        const { mental, hexwater, pyramid, onion, date, day } = this.state;
-        return(
-            <div>
-                <GameUI mental={mental}
-                    hexwater={hexwater}
-                    pyramid={pyramid}
-                    onion={onion}
-                    date={date}
-                    day={day}
-                    handlePlayerState={this.changePlayerState}/>
-                {/*
-                <h3>게임 상황 : {this.getGameState()}</h3>
-                <Player handleGameState={this.changeGameState}/>
-                */}
-            </div>
-        )
-    }
+		}
 }
 
 export default GameCore;

@@ -3,12 +3,7 @@ import GraphComponent from './GraphComponent.js'
 import CalendarComponent from './CalendarComponent.js'
 import './GameUI.css'
 
-class GameUI extends Component {
-    handleAction = (e) => {
-        const {handlePlayerState} = this.props;
-        const key = e.target.id;
-        handlePlayerState(key);    
-    }
+class GameUI extends Component {		
     render () {
         const { mental, hexwater, pyramid, onion, date, day } = this.props;
         var progression = [
@@ -46,7 +41,7 @@ class GameUI extends Component {
             <div id="back">
                 <div id="prog">
                     {/* left up */}
-                    <div id="date">{day == 0? (<div>{date}일 낮</div>) : (<div>{date}일 밤</div>)}</div>
+                    <div id="date">{day === 0? (<div>{date}일 낮</div>) : (<div>{date}일 밤</div>)}</div>
                     <div id="explain">설명설명설명설명설명설명설명설명</div>
                     <div id="progress">
                         <div id="mental">멘탈: {mental}%</div>
@@ -87,7 +82,13 @@ class GameUI extends Component {
                 </div>
             </div>
         )
-    }
+		}
+		
+    handleAction = (e) => {
+        const {handlePlayerState} = this.props;
+        const key = e.target.id;
+        handlePlayerState(key);    
+		}
 }
 
 export default GameUI;
